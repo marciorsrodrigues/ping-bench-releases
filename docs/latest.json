@@ -1,25 +1,19 @@
 {
-  "version": "0.5.2",
-  "released_ms": 1791734572193,
+  "version": "0.5.3",
+  "released_ms": 1791735289765,
   "zip": {
-    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.2/PingBench-0.5.2.zip",
-    "size": 5808349,
-    "sha256": "3f26955c819f9384e67025038fd33bee3b033489dfa3b04a1f9202f8f11010b2"
+    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.3/PingBench-0.5.3.zip",
+    "size": 5808350,
+    "sha256": "fa77f01d56bb9e820e1d3d3683501c0ebd9d29338128588eb03b3e6f21c0212d"
   },
   "dmg": {
-    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.2/PingBench-0.5.2.dmg",
-    "size": 7713696,
-    "sha256": "41a0f77a7936dd2e07d0dfc34f131248d5de30b25cca7261a3f0d6b95171d88e"
+    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.3/PingBench-0.5.3.dmg",
+    "size": 7713744,
+    "sha256": "6e36b0cde84d04494b23c95d26d1f6270e8dac28789198bcb4f8c6256bf975e0"
   },
   "min_macos": "15.0",
   "notes": [
-    "Ping Bench updates itself from its download page: when a new version is out, it asks first, then installs it and restarts.",
-    "Every update is checked before it is installed: its checksum, Apple's notarization and the author's signature.",
-    "Never while monitoring: the question waits until you stop.",
-    "Ping Bench checks about every 6 hours while it is open. Settings \u003e Updates turns the automatic check off; Help \u003e Check for Updates... checks now.",
-    "A download page with step-by-step guides for network engineers and for BPO operators doing remote hands.",
-    "The timeline under the wall is gone, with its T key; snapshots no longer draw it.",
-    "Coming from 0.5.1 or older: install 0.5.2 once from the download page. Later versions arrive in the app."
+    "Maintenance release: no changes to how Ping Bench works."
   ],
   "page": "https://marciorsrodrigues.github.io/ping-bench-releases/"
 }
