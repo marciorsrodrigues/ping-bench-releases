@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ping Bench for Mac: a live ping wall for network maintenance and DR tests</title>
+<meta name="description" content="Ping Bench shows every network device of a site on one live wall during maintenance windows and DR tests, and records every outage with its times. Download version 0.5.2 for Mac.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Ping Bench for Mac">
+<meta property="og:description" content="A live ping wall for network maintenance and DR tests: every device of a site on one screen, every outage recorded for your report.">
+<meta property="og:image" content="https://marciorsrodrigues.github.io/ping-bench-releases/img/wall.png">
+<link rel="icon" href="img/icon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <nav class="nav wrap" aria-label="Sections">
+    <a class="brand" href="#top"><img src="img/icon.png" alt="" width="28" height="28">Ping Bench</a>
+    <ul>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#engineers">Network engineers</a></li>
+      <li><a href="#bpo">BPO operators</a></li>
+      <li><a href="#updates">Updates</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+      <li><a href="#notes">Release notes</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero wrap" id="top" aria-labelledby="title">
+  <div class="intro">
+    <h1 id="title">Ping Bench</h1>
+    <p class="lede">A live ping wall for network maintenance and DR tests.</p>
+    <p>Every device of a site on one screen: green when it answers, red when it does not, and every outage recorded with its times for your report.</p>
+    <div class="get">
+      <a class="download" href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.2/PingBench-0.5.2.dmg">Download for Mac <span>Ping Bench 0.5.2, 7.7 MB</span></a>
+      <a class="other" href="#downloads">Other downloads and checksums</a>
+    </div>
+    <p class="req">macOS 15 or later, Apple Silicon. Notarized by Apple, signed by the author. Released <span class="date">11 October 2026</span>.</p>
+  </div>
+
+  <figure class="beat">
+    <svg viewBox="0 0 480 28" preserveAspectRatio="none" role="img" aria-label="A heartbeat bar, one bar per ping: grey before the first ping, then green, five red bars while the device did not answer, and green again.">
+      <defs>
+        <pattern id="bar-none" width="8" height="28" patternUnits="userSpaceOnUse"><rect class="none" width="6" height="28"/></pattern>
+        <pattern id="bar-up" width="8" height="28" patternUnits="userSpaceOnUse"><rect class="up" width="6" height="28"/></pattern>
+        <pattern id="bar-down" width="8" height="28" patternUnits="userSpaceOnUse"><rect class="down" width="6" height="28"/></pattern>
+      </defs>
+      <rect width="48" height="28" fill="url(#bar-none)"/>
+      <rect x="48" width="280" height="28" fill="url(#bar-up)"/>
+      <rect x="328" width="40" height="28" fill="url(#bar-down)"/>
+      <rect x="368" width="112" height="28" fill="url(#bar-up)"/>
+    </svg>
+    <figcaption>One bar per ping, once a second: <span class="key up">answered</span>, <span class="key down">no answer</span>, <span class="key none">no data yet</span>. Ping Bench pings every device live, and every DOWN and UP goes into the event log with its time.</figcaption>
+  </figure>
+
+  <figure class="shot">
+    <img src="img/wall.png" width="1440" height="900" alt="The Ping Bench wall for the test site XXTST01: a tile for every device with its name, IP, ping time and heartbeat bar, the services first, green tiles for devices that answer and red for those that do not.">
+  </figure>
+</section>
+
+<section class="doc" id="install" aria-labelledby="install-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="install-h">Install</h2>
+  </div>
+  <div class="body">
+    <ol class="steps">
+      <li><strong>Open the download.</strong> Double-click <code>PingBench-0.5.2.dmg</code>. A window opens with Ping Bench and your Applications folder.</li>
+      <li><strong>Put Ping Bench in Applications.</strong> Drag Ping Bench onto Applications. Or double-click Ping Bench in that window: the setup then offers <b>Move to Applications</b>, which copies it for you (into the Applications folder in your home folder when you may not write to the main one). No administrator rights or password needed. Afterwards you can eject the disk image and delete the download.</li>
+      <li><strong>Open it.</strong> Start Ping Bench from Applications. macOS may ask once whether to open an app downloaded from the internet: choose Open. The first-run setup starts.</li>
+      <li><strong>Allow the local network.</strong> Ping Bench pings devices on your office network, and macOS asks once whether it may. Click <b>Allow</b> in the setup, then <b>Allow</b> in the macOS window. If macOS blocks it, no device is pinged: the tiles turn <span class="key blocked">purple</span> and say blocked. Turn it on in <b>System Settings &gt; Privacy &amp; Security &gt; Local Network</b> (the setup's <b>Open System Settings</b> goes straight there).</li>
+    </ol>
+
+    <h3>The first-run setup</h3>
+    <p>A short setup walks you through what Ping Bench needs. Every step shows what is already set, <b>Next</b> saves that step at once, <b>Back</b> never changes anything, and <b>Skip setup</b> goes straight to the start screen. <b>Settings &gt; Run setup again</b> opens it any time.</p>
+    <ol>
+      <li><b>Welcome</b>, with the version.</li>
+      <li><b>Put Ping Bench in Applications</b>, only when it still runs from the disk image or your Downloads folder.</li>
+      <li><b>Allow the local network</b>, as above.</li>
+      <li><b>Your name</b>, shown on snapshots and reports, so everyone knows who ran the test.</li>
+      <li><b>NetBox</b>: network engineers type the NetBox address and their own read-only key (see <a href="#engineers">For network engineers</a>). Everyone else chooses <b>I don't have a key (guest mode)</b>.</li>
+      <li><b>Services</b>: extra addresses to ping next to the site's devices, such as Google DNS (8.8.8.8) and Cloudflare (1.1.1.1), each marked Internal or External. Skipped in guest mode: the services come with the plan.</li>
+      <li><b>Updates</b>: whether Ping Bench looks for new versions by itself (see <a href="#updates">Updates</a>).</li>
+      <li><b>You are ready</b>: <b>Get site devices</b> for an engineer, <b>Import plan...</b> in guest mode.</li>
+    </ol>
+  </div>
+</div>
+</section>
+
+<section class="doc" id="engineers" aria-labelledby="engineers-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="engineers-h">For network engineers</h2>
+    <p class="who">You have NetBox access, run maintenance windows and prepare DR tests.</p>
+  </div>
+  <div class="body">
+    <h3>Connect your NetBox key</h3>
+    <p>Ping Bench ships with no NetBox access and no NetBox address: each engineer uses their own. In NetBox, create an API key with <b>Write enabled</b> off, so it can only read. Then, in the setup's NetBox step or in <b>Settings &gt; NetBox access</b>, type the <b>NetBox address</b> (for example <code>https://netbox.example.com</code>) and <b>Your read-only NetBox API key</b>, and press <b>Check and save</b>.</p>
+    <p>NetBox checks both before anything is saved, so connect to the office network or the VPN first. The key goes into your macOS Keychain and the address into Ping Bench's settings. <b>Forget my key</b> removes the key and switches to guest mode.</p>
+    <figure class="shot">
+      <img src="img/setup-netbox.png" width="1440" height="900" loading="lazy" decoding="async" alt="The NetBox step of the Ping Bench setup: fields for the NetBox address and your read-only NetBox API key, the Check and save button, and the guest mode choice.">
+    </figure>
+
+    <h3>Pick a site and the devices to watch</h3>
+    <ol>
+      <li>On the <b>NetBox site</b> tab, type the exact site code, for example <code>XXTST01</code>, and press <b>Get site devices</b> or Enter. Sites are never listed or browsed: a wrong or partial code shows "No site with code ...". The list is saved under <b>Saved lists</b>, so the same site opens later even when NetBox is down. No NetBox at hand? <b>Import file &gt; Import CSV...</b> takes a NetBox device export as it is.</li>
+      <li>Tick the devices to ping. They are listed by floor with their name, IP, role and type, and what is ticked is exactly what gets pinged ("N of M selected"). <b>Select all</b>, <b>Select none</b>, the <b>Floor</b> and <b>Role</b> chips (untick every PDU in one click), and the <b>Find device</b> box with <b>Select shown</b> make it quick.</li>
+      <li>Check the <b>Services</b>. Internal services are the company's own, such as NetBox or a DNS server; External ones are on the internet, such as Google DNS. Untick any you do not want this time; <b>Manage</b> opens Settings to add, rename or delete them.</li>
+      <li>Type the <b>Change / DR reference</b> if you have one, for example <code>CHG0012345</code>, and press <b>Start</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/start.png" width="1440" height="900" loading="lazy" decoding="async" alt="The Ping Bench start screen with site XXTST01 loaded: the Floor and Role chips with their counts, the devices listed by floor with some tick boxes ticked, the start of the services section, and the Start and Export plan... buttons.">
+    </figure>
+
+    <h3>Read the wall</h3>
+    <p>Ping Bench pings every device live, once a second: each tile shows the device's status right now, green when it answers, red when it does not, purple when macOS blocked the ping and grey when there is no data yet. A tile holds the device's NetBox name, its IP, the ping time (or how long it has been down) and its <b>Card graph</b>, a heartbeat bar of its latest pings. The <b>Internal services</b> and <b>External services</b> come first: when External services go red and the site's devices stay green, the problem is the internet link, not the site.</p>
+    <p>The view bar changes only what the wall shows; every ticked device keeps being pinged and recorded.</p>
+    <ul>
+      <li><b>View</b>: <b>Tiles</b>, <b>List</b> or <b>Dots</b> (<kbd>V</kbd>). Dots fits 500 devices on one screen. Tiles at Medium or Large size, and List, can <b>Auto-scroll</b> on a TV.</li>
+      <li><b>Floor</b> and <b>Role</b> filters, and <b>All</b>, <b>Problems</b> or <b>Down only</b>. <b>Group by</b> floor, role or none (<kbd>G</kbd>); <b>Problems first</b> (<kbd>P</kbd>) puts every down device at the top. <b>Clear view</b> shows everything again.</li>
+      <li><b>Card graph</b>: <b>Live</b> (one bar per ping), <b>2 min</b>, <b>10 min</b>, <b>30 min</b>, <b>1 h</b>, <b>4 h</b>, <b>Session</b> or <b>Off</b>. Hover over a bar to see its time, the pings sent and the replies.</li>
+      <li>Click a tile for its details: a response-time graph, outages and events, <b>Open in NetBox</b>, and a <b>Snapshot</b> or <b>Export CSV</b> of that one device.</li>
+      <li><b>Events</b> (<kbd>E</kbd>) lists every DOWN, UP, snapshot and step with its time.</li>
+      <li><b>Hide menu</b> (<kbd>H</kbd>) hides the toolbar and the view bar for more room, keeping <b>Snapshot</b> at hand; <b>Show menu</b> brings them back. <b>Full screen</b> (<kbd>Ctrl</kbd>+<kbd>Cmd</kbd>+<kbd>F</kbd>) suits a wall display.</li>
+    </ul>
+
+    <h3>Test steps and snapshots</h3>
+    <p>When one test is done, for example a firewall failover, press <b>Next step</b> (<kbd>N</kbd>), name the next test and press <b>Start step</b>. Ping Bench first saves a snapshot of the finished step (untick the box to skip it), then the graphs and the outage counts start again from now. Monitoring never stops, and the report has one section per step.</p>
+    <p><b>Snapshot</b> (<kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>S</kbd>) saves a picture of the wall as you see it, with every down device listed under the tiles, and copies it to the clipboard, ready to paste into the ticket or the chat. A snapshot is the wall's real status at that moment. Snapshots are also taken at Start, at Stop and at the end of each step, and every 15, 30 or 60 minutes when you turn on <b>Automatic snapshot</b> in <b>Settings &gt; Snapshots</b>.</p>
+    <p>They are saved in your Downloads folder (or the folder chosen in <b>Settings &gt; Snapshots</b>), in one folder per site named after its code and office, for example <code>XXTST01 - Test Site</code>, as <code>Ping Bench &lt;date&gt;_&lt;time&gt;_&lt;site code&gt;.png</code>. Every run of the same site lands in the same folder, and a copy stays with the session.</p>
+
+    <h3>Change the wall while monitoring</h3>
+    <p>The <b>Devices</b> menu on the wall:</p>
+    <ul>
+      <li><b>Add devices</b>: more devices from the site's list. They start pinging at once and join their floor.</li>
+      <li><b>Add service</b>: an address that is not in the device list, such as <code>intranet.example.com</code> or <code>8.8.8.8</code>, as Internal or External.</li>
+      <li><b>Remove devices</b>: click the tiles or rows to remove, press <b>Remove N</b> and confirm. They leave the wall at once; the report still lists them. A removed service also leaves this Mac's saved services.</li>
+      <li><b>Export plan...</b>: this wall as a plan file for an operator (see below).</li>
+    </ul>
+
+    <h3 id="keys-h">Keys on the wall</h3>
+    <table class="keys" aria-labelledby="keys-h">
+      <thead><tr><th scope="col">Key</th><th scope="col">What it does</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>/</kbd></td><td>Find devices by name or IP</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Clear the find box, or close the device details</td></tr>
+        <tr><td><kbd>V</kbd></td><td>Tiles, List or Dots</td></tr>
+        <tr><td><kbd>G</kbd></td><td>Group by Floor, Role or None</td></tr>
+        <tr><td><kbd>P</kbd></td><td>Problems first, or back to sorting by role</td></tr>
+        <tr><td><kbd>E</kbd></td><td>Show or hide the events</td></tr>
+        <tr><td><kbd>N</kbd></td><td>Next test step</td></tr>
+        <tr><td><kbd>H</kbd></td><td>Hide or show the menu</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>S</kbd></td><td>Snapshot of the wall</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Cmd</kbd>+<kbd>F</kbd></td><td>Full screen</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Stop and export the report</h3>
+    <p>Press <b>Stop</b> when the test is over (closing the window while monitoring asks first). Ping Bench goes back to the start screen, where <b>Past sessions</b> lists your sessions, newest first. Press <b>Export report</b> next to the session and choose where to save it. The report is a folder with:</p>
+    <ul>
+      <li><code>report.html</code>: the whole report as one page that opens in any browser, with the outages, the services and every snapshot. It loads nothing from the internet.</li>
+      <li><code>summary.txt</code>: one section per test step with its outages and the devices still down at its end, then the whole session.</li>
+      <li><code>events.csv</code> and the snapshots.</li>
+    </ul>
+    <p>The <b>Events</b> panel on the wall has <b>Export report</b> too, for a report while the test is still running.</p>
+
+    <h3 id="plan">Prepare a DR plan for a BPO</h3>
+    <p>A plan is a <code>.pingbench</code> file that carries a DR test to an operator who has no NetBox access, for example a BPO doing remote hands. They open it, check it and press Start; you get the evidence back.</p>
+    <ol>
+      <li>Load the site, tick the devices and services for the test, and type the change reference.</li>
+      <li>Press <b>Export plan...</b> next to Start and save the file. On a running wall, <b>Devices &gt; Export plan...</b> saves what is on the wall now.</li>
+      <li>Send the file to the operator, with the test steps you want them to follow: the name of each step and when to press <b>Next step</b>.</li>
+    </ol>
+    <div class="holds">
+      <div>
+        <h4>A plan holds</h4>
+        <ul>
+          <li>every device of the loaded list, so the operator can add one while monitoring;</li>
+          <li>which devices are ticked;</li>
+          <li>the ticked services, Internal and External;</li>
+          <li>the change reference;</li>
+          <li>the automatic snapshot interval and the notification choices;</li>
+          <li>your wall view, if you changed it for that site.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>A plan never holds</h4>
+        <ul>
+          <li>your NetBox key;</li>
+          <li>the NetBox address.</li>
+        </ul>
+        <p>It does hold internal IP addresses and device names: share it like any other internal document.</p>
+      </div>
+    </div>
+    <p>Services given as host names need DNS where the operator is (often the VPN); IP addresses need no DNS. An older Ping Bench may refuse a plan made with a newer one, so make sure the operator's Ping Bench is as new as yours.</p>
+  </div>
+</div>
+</section>
+
+<section class="doc" id="bpo" aria-labelledby="bpo-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="bpo-h">For BPO operators</h2>
+    <p class="who">You do the remote hands for a DR test, with a plan file from the network engineer and no NetBox access.</p>
+  </div>
+  <div class="body">
+    <p>Ping Bench runs in guest mode on your Mac: everything the test needs comes with the plan. Keep this list at hand on the day.</p>
+    <ol class="checklist">
+      <li><strong>Install Ping Bench in Applications</strong> (see <a href="#install">Install</a>) and allow the local network when macOS asks. Do this before you open the plan.</li>
+      <li><strong>Choose guest mode.</strong> At the NetBox step of the setup, choose <b>I don't have a key (guest mode)</b>.</li>
+      <li><strong>Open the plan.</strong> Double-click the <code>.pingbench</code> file in Finder, or press <b>Import file &gt; Import plan...</b> in Ping Bench. If it asks <b>Replace your services?</b>, choose <b>Replace</b>, so you ping exactly the services the engineer planned. A plan without services asks <b>Remove your services?</b> instead: <b>Remove</b> does the same, and <b>Keep mine</b> keeps your own list in either question.</li>
+      <li><strong>Check what the plan brought.</strong> Ping Bench says it in a message, for example "Plan &lt;name&gt; from &lt;engineer&gt;: 120 devices (98 ticked), 2 services, automatic snapshot every 15 min, notifications on." Check it against what the engineer told you, with the "N of M selected" count and the change reference.</li>
+      <li><strong>Press Start</strong> when the engineer asks you to. If the update question appears before the test, <b>Later</b> is fine: Ping Bench never asks while monitoring.</li>
+      <li><strong>Follow the engineer's steps.</strong> When one test ends and the next begins, press <b>Next step</b> (<kbd>N</kbd>), type the step's name and press <b>Start step</b>.</li>
+      <li><strong>Take snapshots</strong> whenever you are asked: <b>Snapshot</b> (<kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>S</kbd>) copies a picture of the wall to the clipboard, ready to paste into the chat or the ticket, and saves it in your Downloads folder, in the site's folder. If macOS asks once to let Ping Bench use Downloads, choose Allow.</li>
+      <li><strong>Press Stop</strong> when the engineer says the test is over.</li>
+      <li><strong>Send the report back.</strong> On the start screen, under <b>Past sessions</b>, press <b>Export report</b> next to the newest session and choose where to save it. Send the engineer that whole report folder (in Finder, Compress turns it into one zip file).</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/plan.png" width="1440" height="900" loading="lazy" decoding="async" alt="The Ping Bench start screen in guest mode after opening a plan: the Saved lists tab with the plan listed, the Floor and Role chips all ticked, the device list, and a message saying what the plan brought.">
+    </figure>
+    <p>Everything stays editable after the plan is open: tick or untick devices if the engineer asks. Red tiles are devices that stopped answering; purple tiles mean macOS is blocking the pings (see the <a href="#faq">FAQ</a>).</p>
+  </div>
+</div>
+</section>
+
+<section class="doc" id="updates" aria-labelledby="updates-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="updates-h">Updates</h2>
+  </div>
+  <div class="body">
+    <p>From version 0.5.2, Ping Bench keeps itself up to date from this page.</p>
+    <ul>
+      <li>It looks for a new version about every 6 hours while it is open, and whenever you choose <b>Help &gt; Check for Updates...</b> in the menu bar. That needs internet access, not the office network or the VPN.</li>
+      <li>It always asks before installing, and never while you are monitoring: the question waits until you stop.</li>
+      <li>When you say yes, it downloads the new version, checks its checksum, Apple's notarization and the author's signature, then replaces itself and restarts. Nothing is installed unless every check passes.</li>
+      <li><b>Settings &gt; Updates</b> turns the automatic check off.</li>
+      <li>If Ping Bench cannot replace itself (an Applications folder only IT can change, or it is running from the disk image or Downloads), the question offers <b>Open download page</b> and says why. Install the new version from this page as under <a href="#install">Install</a>.</li>
+    </ul>
+    <p class="note">Using 0.5.1 or older? Those versions cannot update themselves. Quit Ping Bench, download 0.5.2 or newer from this page once and drag it onto Applications, replacing the old copy, or double-click Ping Bench in the disk image and press <b>Move to Applications</b>, which replaces an older copy of Ping Bench that is not running, in your Applications folder. Your settings, saved lists, sessions and key stay as they are. Later versions then arrive in the app.</p>
+  </div>
+</div>
+</section>
+
+<section class="doc" id="faq" aria-labelledby="faq-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="faq-h">FAQ and troubleshooting</h2>
+  </div>
+  <div class="body faq">
+    <h3>A tile is purple and says blocked. Is the device down?</h3>
+    <p>No: it was never pinged. Purple means macOS is blocking Ping Bench from the local network, and a purple banner on the wall says so. Turn on Ping Bench in <b>System Settings &gt; Privacy &amp; Security &gt; Local Network</b>; devices that then answer turn green, logged as UP with "Local Network allowed; answering". A red tile is DOWN: it is pinged live and is not answering.</p>
+
+    <h3>Every device went red at once.</h3>
+    <p>Look for the amber banner: it means this Mac lost its own network (Wi-Fi or VPN), so the devices shown DOWN may be fine. Those events are marked as a local network issue in the report. Check this Mac's connection first.</p>
+
+    <h3>Check and save does not work.</h3>
+    <p>NetBox checks the address and the key before Ping Bench saves them, so this Mac must reach NetBox: connect to the office network or the VPN first, and make sure the key is a read-only key of your own. No VPN right now? Continue in guest mode and add the key later in <b>Settings &gt; NetBox access</b>.</p>
+
+    <h3>What is guest mode?</h3>
+    <p>Ping Bench without a NetBox key, for operators such as a BPO doing remote hands. The <b>NetBox site</b> tab is hidden and the status line says guest mode; plans, saved lists and CSV files work as usual. <b>Add NetBox key</b> on the status line opens Settings if you get a key later.</p>
+
+    <h3>A plan says it was made with a newer Ping Bench.</h3>
+    <p>Your Ping Bench is older than the engineer's. Update it (<b>Help &gt; Check for Updates...</b> from 0.5.2, or download it from this page), then open the plan again.</p>
+
+    <h3>How do I get notifications?</h3>
+    <p>In <b>Settings &gt; Notifications</b>, all off at first: <b>Notify when a device goes down or pinging stops</b>, <b>Play a sound</b> and <b>Also when this Mac loses its network</b>. <b>Test notification</b> shows one now; the first time, macOS asks whether to allow them. If Settings says macOS notifications are off for Ping Bench, turn them on in <b>System Settings &gt; Notifications</b>. A plan can turn them on for you.</p>
+
+    <h3>Where does Ping Bench keep my data?</h3>
+    <p>On your Mac only. <code>~/Library/Application Support/Ping Bench/</code> holds your settings, saved lists and one folder per session with its event log and snapshots. Snapshots are also saved in Downloads (or the folder chosen in <b>Settings &gt; Snapshots</b>), one folder per site. Your NetBox key is in the macOS Keychain. Old sessions can be moved to the Trash from <b>Past sessions</b> on the start screen.</p>
+
+    <h3>How do I uninstall Ping Bench?</h3>
+    <p>To remove your key, press <b>Forget my key</b> in <b>Settings &gt; NetBox access</b> first. Then quit Ping Bench and drag it from Applications (or the Applications folder in your home folder) to the Trash. To remove your data too, delete <code>~/Library/Application Support/Ping Bench</code> (in Finder, <b>Go &gt; Go to Folder...</b>). Snapshots in Downloads stay until you delete them.</p>
+  </div>
+</div>
+</section>
+
+<section class="doc" id="security" aria-labelledby="security-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="security-h">Security and privacy</h2>
+  </div>
+  <div class="body">
+    <ul>
+      <li><strong>No telemetry, analytics or tracking.</strong> Ping Bench talks to your NetBox, pings the devices and services you choose and, from 0.5.2, asks this site whether a new version is out and downloads it from GitHub. This page sets no cookies and loads no scripts, web fonts or trackers.</li>
+      <li><strong>Your NetBox key stays in your macOS Keychain.</strong> It is never written to Ping Bench's data folder and never put in a plan.</li>
+      <li><strong>Plans and reports hold internal IP addresses and device names.</strong> Share them like any other internal document.</li>
+      <li><strong>Every release is notarized by Apple and signed with the author's Developer ID</strong> (Team ID <code>6L3JTJA4Y6</code>). Before it installs an update, Ping Bench checks both, and the download's checksum.</li>
+    </ul>
+    <p>To check the installed app yourself, run these in Terminal. The first shows <code>TeamIdentifier=6L3JTJA4Y6</code>, the second <code>source=Notarized Developer ID</code>.</p>
+<pre><code>codesign -dv "/Applications/Ping Bench.app"
+spctl -a -vv "/Applications/Ping Bench.app"</code></pre>
+  </div>
+</div>
+</section>
+
+<section class="doc" id="downloads" aria-labelledby="downloads-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="downloads-h">Downloads</h2>
+  </div>
+  <div class="body">
+    <p>Ping Bench 0.5.2, released 11 October 2026, for macOS 15 or later on Apple Silicon.</p>
+    <div class="file">
+      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.2/PingBench-0.5.2.dmg">PingBench-0.5.2.dmg</a></h3>
+      <p>Disk image, 7.7 MB. The one to download: open it and drag Ping Bench to Applications.</p>
+      <p class="sum">SHA-256 <code class="hash">41a0f77a7936dd2e07d0dfc34f131248d5de30b25cca7261a3f0d6b95171d88e</code></p>
+    </div>
+    <div class="file">
+      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.2/PingBench-0.5.2.zip">PingBench-0.5.2.zip</a></h3>
+      <p>Zip, 5.8 MB. The same signed and notarized app; the in-app updater uses this file.</p>
+      <p class="sum">SHA-256 <code class="hash">3f26955c819f9384e67025038fd33bee3b033489dfa3b04a1f9202f8f11010b2</code></p>
+    </div>
+    <p>Older versions and every file: <a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases">all releases on GitHub</a>.</p>
+
+    <h3>Check a download</h3>
+    <p>In Terminal, run <code>shasum -a 256</code> on the file and compare the result with the SHA-256 above. They must match exactly.</p>
+<pre><code>shasum -a 256 ~/Downloads/PingBench-0.5.2.dmg</code></pre>
+  </div>
+</div>
+</section>
+
+<section class="doc" id="notes" aria-labelledby="notes-h">
+<div class="wrap">
+  <div class="rail">
+    <h2 id="notes-h">Release notes</h2>
+  </div>
+  <div class="body notes">
+<section class="release" id="notes-0.5.2">
+<h3>0.5.2</h3>
+<ul>
+<li>Ping Bench updates itself from its download page: when a new version is out, it asks first, then installs it and restarts.</li>
+<li>Every update is checked before it is installed: its checksum, Apple&#x27;s notarization and the author&#x27;s signature.</li>
+<li>Never while monitoring: the question waits until you stop.</li>
+<li>Ping Bench checks about every 6 hours while it is open. Settings &gt; Updates turns the automatic check off; Help &gt; Check for Updates... checks now.</li>
+<li>A download page with step-by-step guides for network engineers and for BPO operators doing remote hands.</li>
+<li>The timeline under the wall is gone, with its T key; snapshots no longer draw it.</li>
+<li>Coming from 0.5.1 or older: install 0.5.2 once from the download page. Later versions arrive in the app.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.5.1">
+<h3>0.5.1</h3>
+<ul>
+<li>Each network engineer types the NetBox address and their own read-only NetBox key. Ping Bench no longer ships with either.</li>
+<li>Guest mode, for operators without a key: plans, saved lists and CSV files work as usual.</li>
+<li>DR plan files (<code>.pingbench</code>): Export plan... saves the devices, services, reference and settings; the operator double-clicks the plan or uses Import plan...</li>
+<li>The plan&#x27;s name, author and date are written in the evidence: the log, <code>summary.txt</code> and <code>report.html</code>.</li>
+<li>A Devices menu on the wall: Add devices, Add service, Remove devices and Export plan...</li>
+<li>Removed devices leave the wall at once; the report still lists them.</li>
+<li>Hide menu (H) hides the toolbar and the view bar for more room, and keeps Snapshot at hand.</li>
+<li>Snapshots are also copied to one folder per site in Downloads (or the folder chosen in Settings &gt; Snapshots).</li>
+</ul>
+</section>
+<section class="release" id="notes-0.4.0">
+<h3>0.4.0</h3>
+<ul>
+<li>Pinging restarts by itself after a failure, a warning when events cannot be recorded, <code>report.html</code>, CSV export per device, notifications and automatic snapshots.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.3.4">
+<h3>0.3.4</h3>
+<ul>
+<li>Tiles, List and Dots views, longer Card graph windows, and loss figures that match the bars.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.3.3">
+<h3>0.3.3</h3>
+<ul>
+<li>Live Card graph (1 bar = 1 ping) and smaller tile text.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.3.2">
+<h3>0.3.2</h3>
+<ul>
+<li>A snapshot folder, heartbeat bars fixed to the clock, green and red tiles, and a splash screen.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.3.1">
+<h3>0.3.1</h3>
+<ul>
+<li>Internal and External services, and stricter heartbeat bars.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.3.0">
+<h3>0.3.0</h3>
+<ul>
+<li>Installer and setup wizard, adding devices while monitoring, and host names as targets.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.2.0">
+<h3>0.2.0</h3>
+<ul>
+<li>External targets, clearer picker chips, and clearing past sessions.</li>
+</ul>
+</section>
+<section class="release" id="notes-0.1.0">
+<h3>0.1.0</h3>
+<ul>
+<li>The first live ping wall from NetBox, for DR tests and maintenance evidence.</li>
+</ul>
+</section>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Ping Bench by Marcio Rodrigues, 2026.</p>
+    <p><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases">Releases on GitHub</a></p>
+  </div>
+</footer>
+</body>
+</html>
