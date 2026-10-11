@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ping Bench for Mac: a live ping wall for network maintenance and DR tests</title>
-<meta name="description" content="Ping Bench shows every network device of a site on one live wall during maintenance windows and DR tests, and records every outage with its times. Download version 0.5.3 for Mac.">
+<meta name="description" content="Ping Bench shows every network device of a site on one live wall during maintenance windows and DR tests, and records every outage with its times. Download version 0.5.4 for Mac.">
 <meta name="color-scheme" content="light dark">
 <meta property="og:title" content="Ping Bench for Mac">
 <meta property="og:description" content="A live ping wall for network maintenance and DR tests: every device of a site on one screen, every outage recorded for your report.">
@@ -39,7 +39,7 @@
     <p class="lede">A live ping wall for network maintenance and DR tests.</p>
     <p>Every device of a site on one screen: green when it answers, red when it does not, and every outage recorded with its times for your report.</p>
     <div class="get">
-      <a class="download" href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.3/PingBench-0.5.3.dmg">Download for Mac <span>Ping Bench 0.5.3, 7.7 MB</span></a>
+      <a class="download" href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.dmg">Download for Mac <span>Ping Bench 0.5.4, 7.7 MB</span></a>
       <a class="other" href="#downloads">Other downloads and checksums</a>
     </div>
     <p class="req">macOS 15 or later, Apple Silicon. Notarized by Apple, signed by the author. Released <span class="date">11 October 2026</span>.</p>
@@ -72,7 +72,7 @@
   </div>
   <div class="body">
     <ol class="steps">
-      <li><strong>Open the download.</strong> Double-click <code>PingBench-0.5.3.dmg</code>. A window opens with Ping Bench and your Applications folder.</li>
+      <li><strong>Open the download.</strong> Double-click <code>PingBench-0.5.4.dmg</code>. A window opens with Ping Bench and your Applications folder.</li>
       <li><strong>Put Ping Bench in Applications.</strong> Drag Ping Bench onto Applications. Or double-click Ping Bench in that window: the setup then offers <b>Move to Applications</b>, which copies it for you (into the Applications folder in your home folder when you may not write to the main one). No administrator rights or password needed. Afterwards you can eject the disk image and delete the download.</li>
       <li><strong>Open it.</strong> Start Ping Bench from Applications. macOS may ask once whether to open an app downloaded from the internet: choose Open. The first-run setup starts.</li>
       <li><strong>Allow the local network.</strong> Ping Bench pings devices on your office network, and macOS asks once whether it may. Click <b>Allow</b> in the setup, then <b>Allow</b> in the macOS window. If macOS blocks it, no device is pinged: the tiles turn <span class="key blocked">purple</span> and say blocked. Turn it on in <b>System Settings &gt; Privacy &amp; Security &gt; Local Network</b> (the setup's <b>Open System Settings</b> goes straight there).</li>
@@ -239,7 +239,7 @@
   <div class="body">
     <p>From version 0.5.2, Ping Bench keeps itself up to date from this page.</p>
     <ul>
-      <li>It looks for a new version about every 6 hours while it is open, and whenever you choose <b>Help &gt; Check for Updates...</b> in the menu bar. That needs internet access, not the office network or the VPN.</li>
+      <li>It looks for a new version a few seconds after Ping Bench opens and about every 6 hours while it is open (with no internet it tries again every 10 minutes until it gets through), and whenever you choose <b>Ping Bench &gt; Check for Updates...</b> or <b>Help &gt; Check for Updates...</b> in the menu bar. <b>Ping Bench &gt; About Ping Bench</b> shows the version and the update status, with <b>Check for Updates</b> and <b>Download page</b> buttons. Checking, downloading an update and opening this page need internet access, not the office network or the VPN; the About window itself opens offline.</li>
       <li>It always asks before installing, and never while you are monitoring: the question waits until you stop.</li>
       <li>When you say yes, it downloads the new version, checks its checksum, Apple's notarization and the author's signature, then replaces itself and restarts. Nothing is installed unless every check passes.</li>
       <li><b>Settings &gt; Updates</b> turns the automatic check off.</li>
@@ -269,7 +269,7 @@
     <p>Ping Bench without a NetBox key, for operators such as a BPO doing remote hands. The <b>NetBox site</b> tab is hidden and the status line says guest mode; plans, saved lists and CSV files work as usual. <b>Add NetBox key</b> on the status line opens Settings if you get a key later.</p>
 
     <h3>A plan says it was made with a newer Ping Bench.</h3>
-    <p>Your Ping Bench is older than the engineer's. Update it (<b>Help &gt; Check for Updates...</b> from 0.5.2, or download it from this page), then open the plan again.</p>
+    <p>Your Ping Bench is older than the engineer's. Update it (<b>Ping Bench &gt; Check for Updates...</b> from 0.5.4, <b>Help &gt; Check for Updates...</b> from 0.5.2, or download it from this page), then open the plan again.</p>
 
     <h3>How do I get notifications?</h3>
     <p>In <b>Settings &gt; Notifications</b>, all off at first: <b>Notify when a device goes down or pinging stops</b>, <b>Play a sound</b> and <b>Also when this Mac loses its network</b>. <b>Test notification</b> shows one now; the first time, macOS asks whether to allow them. If Settings says macOS notifications are off for Ping Bench, turn them on in <b>System Settings &gt; Notifications</b>. A plan can turn them on for you.</p>
@@ -308,22 +308,22 @@ spctl -a -vv "/Applications/Ping Bench.app"</code></pre>
     <h2 id="downloads-h">Downloads</h2>
   </div>
   <div class="body">
-    <p>Ping Bench 0.5.3, released 11 October 2026, for macOS 15 or later on Apple Silicon.</p>
+    <p>Ping Bench 0.5.4, released 11 October 2026, for macOS 15 or later on Apple Silicon.</p>
     <div class="file">
-      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.3/PingBench-0.5.3.dmg">PingBench-0.5.3.dmg</a></h3>
+      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.dmg">PingBench-0.5.4.dmg</a></h3>
       <p>Disk image, 7.7 MB. The one to download: open it and drag Ping Bench to Applications.</p>
-      <p class="sum">SHA-256 <code class="hash">6e36b0cde84d04494b23c95d26d1f6270e8dac28789198bcb4f8c6256bf975e0</code></p>
+      <p class="sum">SHA-256 <code class="hash">ad94f132e8345fb717216220921805cc9227492eb139c3e82bcc5b13ac6e8227</code></p>
     </div>
     <div class="file">
-      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.3/PingBench-0.5.3.zip">PingBench-0.5.3.zip</a></h3>
+      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.zip">PingBench-0.5.4.zip</a></h3>
       <p>Zip, 5.8 MB. The same signed and notarized app; the in-app updater uses this file.</p>
-      <p class="sum">SHA-256 <code class="hash">fa77f01d56bb9e820e1d3d3683501c0ebd9d29338128588eb03b3e6f21c0212d</code></p>
+      <p class="sum">SHA-256 <code class="hash">fc0369a314963a8b7ade88fbcc880a16d013622da766377b0d482e247feeea7f</code></p>
     </div>
     <p>Older versions and every file: <a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases">all releases on GitHub</a>.</p>
 
     <h3>Check a download</h3>
     <p>In Terminal, run <code>shasum -a 256</code> on the file and compare the result with the SHA-256 above. They must match exactly.</p>
-<pre><code>shasum -a 256 ~/Downloads/PingBench-0.5.3.dmg</code></pre>
+<pre><code>shasum -a 256 ~/Downloads/PingBench-0.5.4.dmg</code></pre>
   </div>
 </div>
 </section>
@@ -334,6 +334,13 @@ spctl -a -vv "/Applications/Ping Bench.app"</code></pre>
     <h2 id="notes-h">Release notes</h2>
   </div>
   <div class="body notes">
+<section class="release" id="notes-0.5.4">
+<h3>0.5.4</h3>
+<ul>
+<li>A Ping Bench menu with About Ping Bench: the version, the author, the update status, and buttons Check for Updates and Download page. Check for Updates is also in that menu.</li>
+<li>Ping Bench now checks for a new version when it opens, and again every 10 minutes while there is no internet. Settings &gt; Updates still turns the automatic check off.</li>
+</ul>
+</section>
 <section class="release" id="notes-0.5.3">
 <h3>0.5.3</h3>
 <ul>

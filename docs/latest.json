@@ -1,19 +1,20 @@
 {
-  "version": "0.5.3",
-  "released_ms": 1791735289765,
+  "version": "0.5.4",
+  "released_ms": 1791737982250,
   "zip": {
-    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.3/PingBench-0.5.3.zip",
-    "size": 5808350,
-    "sha256": "fa77f01d56bb9e820e1d3d3683501c0ebd9d29338128588eb03b3e6f21c0212d"
+    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.zip",
+    "size": 5810554,
+    "sha256": "fc0369a314963a8b7ade88fbcc880a16d013622da766377b0d482e247feeea7f"
   },
   "dmg": {
-    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.3/PingBench-0.5.3.dmg",
-    "size": 7713744,
-    "sha256": "6e36b0cde84d04494b23c95d26d1f6270e8dac28789198bcb4f8c6256bf975e0"
+    "url": "https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.dmg",
+    "size": 7718833,
+    "sha256": "ad94f132e8345fb717216220921805cc9227492eb139c3e82bcc5b13ac6e8227"
   },
   "min_macos": "15.0",
   "notes": [
-    "Maintenance release: no changes to how Ping Bench works."
+    "A Ping Bench menu with About Ping Bench: the version, the author, the update status, and buttons Check for Updates and Download page. Check for Updates is also in that menu.",
+    "Ping Bench now checks for a new version when it opens, and again every 10 minutes while there is no internet. Settings \u003e Updates still turns the automatic check off."
   ],
   "page": "https://marciorsrodrigues.github.io/ping-bench-releases/"
 }
