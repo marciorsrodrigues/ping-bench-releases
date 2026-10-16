@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ping Bench for Mac: a live ping wall for network maintenance and DR tests</title>
-<meta name="description" content="Ping Bench shows every network device of a site on one live wall during maintenance windows and DR tests, and records every outage with its times. Download version 0.5.4 for Mac.">
+<meta name="description" content="Ping Bench shows every network device of a site on one live wall during maintenance windows and DR tests, and records every outage with its times. Download version 0.5.5 for Mac.">
 <meta name="color-scheme" content="light dark">
 <meta property="og:title" content="Ping Bench for Mac">
 <meta property="og:description" content="A live ping wall for network maintenance and DR tests: every device of a site on one screen, every outage recorded for your report.">
@@ -39,10 +39,10 @@
     <p class="lede">A live ping wall for network maintenance and DR tests.</p>
     <p>Every device of a site on one screen: green when it answers, red when it does not, and every outage recorded with its times for your report.</p>
     <div class="get">
-      <a class="download" href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.dmg">Download for Mac <span>Ping Bench 0.5.4, 7.7 MB</span></a>
+      <a class="download" href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.5/PingBench-0.5.5.dmg">Download for Mac <span>Ping Bench 0.5.5, 7.7 MB</span></a>
       <a class="other" href="#downloads">Other downloads and checksums</a>
     </div>
-    <p class="req">macOS 15 or later, Apple Silicon. Notarized by Apple, signed by the author. Released <span class="date">11 October 2026</span>.</p>
+    <p class="req">macOS 15 or later, Apple Silicon. Notarized by Apple, signed by the author. Released <span class="date">16 October 2026</span>.</p>
   </div>
 
   <figure class="beat">
@@ -72,7 +72,7 @@
   </div>
   <div class="body">
     <ol class="steps">
-      <li><strong>Open the download.</strong> Double-click <code>PingBench-0.5.4.dmg</code>. A window opens with Ping Bench and your Applications folder.</li>
+      <li><strong>Open the download.</strong> Double-click <code>PingBench-0.5.5.dmg</code>. A window opens with Ping Bench and your Applications folder.</li>
       <li><strong>Put Ping Bench in Applications.</strong> Drag Ping Bench onto Applications. Or double-click Ping Bench in that window: the setup then offers <b>Move to Applications</b>, which copies it for you (into the Applications folder in your home folder when you may not write to the main one). No administrator rights or password needed. Afterwards you can eject the disk image and delete the download.</li>
       <li><strong>Open it.</strong> Start Ping Bench from Applications. macOS may ask once whether to open an app downloaded from the internet: choose Open. The first-run setup starts.</li>
       <li><strong>Allow the local network.</strong> Ping Bench pings devices on your office network, and macOS asks once whether it may. Click <b>Allow</b> in the setup, then <b>Allow</b> in the macOS window. If macOS blocks it, no device is pinged: the tiles turn <span class="key blocked">purple</span> and say blocked. Turn it on in <b>System Settings &gt; Privacy &amp; Security &gt; Local Network</b> (the setup's <b>Open System Settings</b> goes straight there).</li>
@@ -308,22 +308,22 @@ spctl -a -vv "/Applications/Ping Bench.app"</code></pre>
     <h2 id="downloads-h">Downloads</h2>
   </div>
   <div class="body">
-    <p>Ping Bench 0.5.4, released 11 October 2026, for macOS 15 or later on Apple Silicon.</p>
+    <p>Ping Bench 0.5.5, released 16 October 2026, for macOS 15 or later on Apple Silicon.</p>
     <div class="file">
-      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.dmg">PingBench-0.5.4.dmg</a></h3>
+      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.5/PingBench-0.5.5.dmg">PingBench-0.5.5.dmg</a></h3>
       <p>Disk image, 7.7 MB. The one to download: open it and drag Ping Bench to Applications.</p>
-      <p class="sum">SHA-256 <code class="hash">ad94f132e8345fb717216220921805cc9227492eb139c3e82bcc5b13ac6e8227</code></p>
+      <p class="sum">SHA-256 <code class="hash">c8f4d27aa4c4357a78bbda2544d6ea266b0e1b04ebe593aea4609d08a45c74db</code></p>
     </div>
     <div class="file">
-      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.4/PingBench-0.5.4.zip">PingBench-0.5.4.zip</a></h3>
+      <h3><a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases/download/v0.5.5/PingBench-0.5.5.zip">PingBench-0.5.5.zip</a></h3>
       <p>Zip, 5.8 MB. The same signed and notarized app; the in-app updater uses this file.</p>
-      <p class="sum">SHA-256 <code class="hash">fc0369a314963a8b7ade88fbcc880a16d013622da766377b0d482e247feeea7f</code></p>
+      <p class="sum">SHA-256 <code class="hash">86fd67594c29a05678b198a8ef98ca14b6a06041926d36c9d7e8915697b8163f</code></p>
     </div>
     <p>Older versions and every file: <a href="https://github.com/marciorsrodrigues/ping-bench-releases/releases">all releases on GitHub</a>.</p>
 
     <h3>Check a download</h3>
     <p>In Terminal, run <code>shasum -a 256</code> on the file and compare the result with the SHA-256 above. They must match exactly.</p>
-<pre><code>shasum -a 256 ~/Downloads/PingBench-0.5.4.dmg</code></pre>
+<pre><code>shasum -a 256 ~/Downloads/PingBench-0.5.5.dmg</code></pre>
   </div>
 </div>
 </section>
@@ -334,6 +334,12 @@ spctl -a -vv "/Applications/Ping Bench.app"</code></pre>
     <h2 id="notes-h">Release notes</h2>
   </div>
   <div class="body notes">
+<section class="release" id="notes-0.5.5">
+<h3>0.5.5</h3>
+<ul>
+<li>The site code field&#x27;s example is now a neutral code (XXTST01).</li>
+</ul>
+</section>
 <section class="release" id="notes-0.5.4">
 <h3>0.5.4</h3>
 <ul>
